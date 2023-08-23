@@ -589,3 +589,173 @@ Response :
     "status" : "string"
 }
 ```
+
+
+## Laporan TOBK
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan-tobk/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan TOBK
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan-tobk/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan Tes VAK
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan-vak/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan Tes Kuis
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan-kuis/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan Presensi Kegiatan Belajar Mengajar (KBM)
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan-kbm/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan Aktivitas Belajar Siswa (ABS)
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan-abs/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
