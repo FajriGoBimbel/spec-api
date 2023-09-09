@@ -10,7 +10,7 @@ Request :
 
 ```json 
 {
-    "username" : "string",
+    "nama_lengkap" : "string",
     "nohp": "number",
     "email" : "string",
     "password" : "string",
@@ -24,10 +24,12 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "username" : "string",
+         "nama_lengkap" : "string",
          "nohp": "number",
          "email" : "string",
+         "id_sekolah_kelas": "number",
+         "c_id_kurikulum": "number",
+         "status": "enum",
          "createdAt" : "date",
          "updatedAt" : "date"
     },
@@ -50,7 +52,7 @@ Request :
 
 ```json 
 {
-    "username" : "string",
+    "email" : "string",
     "password" : "string",
 }
 ```
@@ -61,10 +63,24 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "username" : "string",
-         "nohp" : "number",
+         "nama_lengkap" : "string",
+         "nohp": "number",
          "email" : "string",
+         "id_sekolah_kelas": "number",
+         "kelas_detail": {
+            "id": "string, unique",
+            "tingkat_kelas": "string",
+            "jurusan": "string",
+            "kelompok_sekolah": "string", 
+         },
+         "id_kurikulum": "number",
+         "kurikulum_detail": {
+            "id": "string, unique",
+            "nama_kurilkulum": "string",
+            "singkatan_kurikulum": "string",
+            "tahun_terbit": "number"
+         },
+         "status": "enum",
          "token" : "string", 
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -98,10 +114,12 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "username" : "string",
-         "nohp" : "number",
+         "nama_lengkap" : "string",
+         "nohp": "number",
          "email" : "string",
+         "id_sekolah_kelas": "number",
+         "id_kurikulum": "number",
+         "status": "enum",
          "token" : "string", 
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -137,10 +155,12 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "username" : "string",
-         "nohp" : "number",
+         "nama_lengkap" : "string",
+         "nohp": "number",
          "email" : "string",
+         "id_sekolah_kelas": "number",
+         "id_kurikulum": "number",
+         "status": "enum",
          "token" : "string", 
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -175,10 +195,12 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "username" : "string",
-         "nohp" : "number",
+         "nama_lengkap" : "string",
+         "nohp": "number",
          "email" : "string",
+         "id_sekolah_kelas": "number",
+         "id_kurikulum": "number",
+         "status": "enum",
          "token" : "string", 
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -213,10 +235,12 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "username" : "string",
-         "nohp" : "number",
+         "nama_lengkap" : "string",
+         "nohp": "number",
          "email" : "string",
+         "id_sekolah_kelas": "number",
+         "id_kurikulum": "number",
+         "status": "enum",
          "token" : "string", 
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -240,7 +264,7 @@ Request :
 
 ```json 
 {
-    "nohp" : "string",
+    "nohp" : "number",
     "id_device" : "string, unique",
 }
 ```
@@ -251,10 +275,12 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "username" : "string",
-         "nohp" : "number",
+         "nama_lengkap" : "string",
+         "nohp": "number",
          "email" : "string",
+         "id_sekolah_kelas": "number",
+         "id_kurikulum": "number",
+         "status": "enum",
          "token" : "string", 
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -289,10 +315,12 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "username" : "string",
-         "nohp" : "number",
+         "nama_lengkap" : "string",
+         "nohp": "number",
          "email" : "string",
+         "id_sekolah_kelas": "number",
+         "id_kurikulum": "number",
+         "status": "enum",
          "token" : "string", 
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -326,10 +354,12 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "username" : "string",
-         "nohp" : "number",
+         "nama_lengkap" : "string",
+         "nohp": "number",
          "email" : "string",
+         "id_sekolah_kelas": "number",
+         "id_kurikulum": "number",
+         "status": "enum",
          "token" : "string", 
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -384,23 +414,31 @@ Response :
 }
 ```
 
-## Get Product Komar
+## Get Product
 
 Request :
-- Method : GET
-- Endpoint : `/api/v1/products/{id_komar}`
-- Header :
-    - Accept: application/json
+- Method : POST
+- Endpoint : `/api/v1/products`
+- Header : null
+- Body :
 
+```json 
+{
+    "kota" : "string",
+    "outlet" : "string",
+    "kelas" : "string",
+}
+```
+       
 Response :
 
 ```json 
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "price" : "long",
-         "komar" : "string",
+         "name_product" : "string",
+         "price" : "number",
+         "jenis_layanan" : "string",
          "createdAt" : "date",
          "updatedAt" : "date"
     },
@@ -412,6 +450,7 @@ Response :
     }
 }
 ```
+
 
 ## Get Product Detail
 
@@ -427,9 +466,15 @@ Response :
 {
     "data" : {
          "id" : "string, unique",
-         "name" : "string",
-         "price" : "long",
-         "komar" : "string",
+         "name_product" : "string",
+         "price" : "number",
+         "jenis_layanan" : "string",
+         "product_detail": [
+            {
+                "icon": "string",
+                "program_name": "string",
+            }
+         ],
          "createdAt" : "date",
          "updatedAt" : "date"
     },
@@ -580,6 +625,7 @@ Request :
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
+
 Response :
 
 ```json 
@@ -590,40 +636,14 @@ Response :
 }
 ```
 
+# Laporan
+
 
 ## Laporan TOBK
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/laporan-tobk/{id_user}`
-- Header :
-    - Accept: application/json
-    - Authorization : "Bearer " + Token
-Response :
-
-```json 
-{
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
-
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
-
-## Laporan TOBK
-
-Request :
-- Method : GET
-- Endpoint : `/api/v1/laporan-tobk/{id_user}`
+- Endpoint : `/api/v1/laporan/tobk/{id_user}`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -651,7 +671,7 @@ Response :
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/laporan-vak/{id_user}`
+- Endpoint : `/api/v1/laporan/vak/{id_user}`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -679,7 +699,7 @@ Response :
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/laporan-kuis/{id_user}`
+- Endpoint : `/api/v1/laporan/kuis/{id_user}`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -707,7 +727,7 @@ Response :
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/laporan-kbm/{id_user}`
+- Endpoint : `/api/v1/laporan/presensi-kbm/{id_user}`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -735,7 +755,7 @@ Response :
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/laporan-abs/{id_user}`
+- Endpoint : `/api/v1/laporan/abs/{id_user}`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -750,6 +770,199 @@ Response :
          "createdAt" : "date",
          "updatedAt" : "date"
     },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan Buku Sakti
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan/buku-sakti/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "id" : "string, unique",
+            "name" : "string",
+            "jumlah_target_soal" : "number",
+            "target_soal_dikerjakan": "number",
+            "total_score": "number",
+            "total_benar": "number",
+            "total_salah": "number",
+            "detail_target_soal": [
+               {
+                   "level_soal": "number",
+                   "total_jawaban": {
+                       "salah": "number",
+                       "benar": "number"
+                   }
+   
+               },
+               {
+                   "level_soal": "number",
+                   "total_jawaban": {
+                       "salah": "number",
+                       "benar": "number"
+                   }
+   
+               },
+               {
+                   "level_soal": "number",
+                   "total_jawaban": {
+                       "salah": "number",
+                       "benar": "number"
+                   }
+   
+               },
+               {
+                   "level_soal": "number",
+                   "total_jawaban": {
+                       "salah": "number",
+                       "benar": "number"
+                   }
+   
+               },
+               {
+                   "level_soal": "number",
+                   "total_jawaban": {
+                       "salah": "number",
+                       "benar": "number"
+                   }
+   
+               },
+            ],
+            "rank_nasional": "number",
+            "rank_kota": "number",
+            "rank_cabang": "number",
+            "rank_gedung": "number",
+            "rank_sekolah": "number",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan Progress Hasil Latihan Buku Sakti
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan/buku-sakti/progress/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "progress": "string", // cnth : hari ini, minggu ini, bulan ini
+            "kategori": [
+                {
+                    "nama_kategori": "string", // cnth: Literasi Bahasa, penalaran
+                    "mapel": [
+                        {
+                            "id_mapel": "string",
+                            "nama_mapel": "string", // matematika, b,Indo, b.ing, dll
+                            "singkatan_maple": "string",
+                            "benar": "number",
+                            "salah": "number",
+                            "total_target": "number",
+                            "progress_target": "number"
+                        },
+                    ],
+                },
+            ],
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+# Leaderboard
+
+
+## Leaderboard First Rank
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/leaderboard/first-rank`
+- Header : null
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "NIS": "string",
+            "total": "number",
+            "tipe": "string",
+            "no_registrasi": "string",
+            "score": "number",
+            "nama_lengkap": "string",
+            "url_profile": "string"
+        },
+        {
+            "NIS": "string",
+            "total": "number",
+            "tipe": "string",
+            "no_registrasi": "string",
+            "score": "number",
+            "nama_lengkap": "string",
+            "url_profile": "string"
+        },
+        {
+            "NIS": "string",
+            "total": "number",
+            "tipe": "string",
+            "no_registrasi": "string",
+            "score": "number",
+            "nama_lengkap": "string",
+            "url_profile": "string"
+        },
+        {
+            "NIS": "string",
+            "total": "number",
+            "tipe": "string",
+            "no_registrasi": "string",
+            "score": "number",
+            "nama_lengkap": "string",
+            "url_profile": "string"
+        },
+        {
+            "NIS": "string",
+            "total": "number",
+            "tipe": "string",
+            "no_registrasi": "string",
+            "score": "number",
+            "nama_lengkap": "string",
+            "url_profile": "string"
+        },
+    ],
 
     "meta" : {
         "code" : "number",
