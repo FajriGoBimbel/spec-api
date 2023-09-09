@@ -28,7 +28,7 @@ Response :
          "nohp": "number",
          "email" : "string",
          "id_sekolah_kelas": "number",
-         "c_id_kurikulum": "number",
+         "id_kurikulum": "number",
          "status": "enum",
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -802,39 +802,7 @@ Response :
             "total_salah": "number",
             "detail_target_soal": [
                {
-                   "level_soal": "number",
-                   "total_jawaban": {
-                       "salah": "number",
-                       "benar": "number"
-                   }
-   
-               },
-               {
-                   "level_soal": "number",
-                   "total_jawaban": {
-                       "salah": "number",
-                       "benar": "number"
-                   }
-   
-               },
-               {
-                   "level_soal": "number",
-                   "total_jawaban": {
-                       "salah": "number",
-                       "benar": "number"
-                   }
-   
-               },
-               {
-                   "level_soal": "number",
-                   "total_jawaban": {
-                       "salah": "number",
-                       "benar": "number"
-                   }
-   
-               },
-               {
-                   "level_soal": "number",
+                   "level_soal": "number", // cnth: level soal 1,2,3,4,5
                    "total_jawaban": {
                        "salah": "number",
                        "benar": "number"
@@ -920,43 +888,7 @@ Response :
         {
             "NIS": "string",
             "total": "number",
-            "tipe": "string",
-            "no_registrasi": "string",
-            "score": "number",
-            "nama_lengkap": "string",
-            "url_profile": "string"
-        },
-        {
-            "NIS": "string",
-            "total": "number",
-            "tipe": "string",
-            "no_registrasi": "string",
-            "score": "number",
-            "nama_lengkap": "string",
-            "url_profile": "string"
-        },
-        {
-            "NIS": "string",
-            "total": "number",
-            "tipe": "string",
-            "no_registrasi": "string",
-            "score": "number",
-            "nama_lengkap": "string",
-            "url_profile": "string"
-        },
-        {
-            "NIS": "string",
-            "total": "number",
-            "tipe": "string",
-            "no_registrasi": "string",
-            "score": "number",
-            "nama_lengkap": "string",
-            "url_profile": "string"
-        },
-        {
-            "NIS": "string",
-            "total": "number",
-            "tipe": "string",
+            "tipe": "string", // Nasional, Kota, cabang, gedung, sekolah
             "no_registrasi": "string",
             "score": "number",
             "nama_lengkap": "string",
@@ -972,3 +904,38 @@ Response :
 }
 ```
 
+
+# TOBK
+
+## TOBK
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tobk`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "kode_tobk": "string",
+            "id_sekolah_kelas": "number",
+            "tahap_tobk": "string", // cnth : tobk1, tobk2, tobk3, dll
+            "date_mulai_tobk": "date",
+            "jam_mulai_tobk": "datetime",
+            "durasi_tobk": "time",
+            "status_pembayaran": "enum", // cnth: belum lunas, cicilan, lunas
+            "type_tobk": "enum", // cnth: Online, Offline
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
