@@ -44,9 +44,11 @@ Response :
 
 ## Login
 
+### Login Tamu
+
 Request :
 - Method : POST
-- Endpoint : `/api/v1/login`
+- Endpoint : `/api/v1/login-tamu`
 - Header : null
 - Body :
 
@@ -80,8 +82,208 @@ Response :
             "singkatan_kurikulum": "string",
             "tahun_terbit": "number"
          },
+         "daftar_produk_teaser": [
+            {
+                "id_komponent_produk": "string, unique",
+                "id_bundling": "string, unique",
+                "nama_bundling": "string",
+                "nama_produk": "string",
+                "id_jenis_produk": "string, unique",,
+                "nama_jenis_produk": "string",
+                "tanggal_awal": "date",
+                "tanggal_akhir": "date",
+                "id_sekolah_kelas": "string, unique",
+            },
+        ],
          "status": "enum",
          "token" : "string", 
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Login Siswa
+
+Request :
+- Method : POST
+- Endpoint : `/api/v1/login-siswa`
+- Header : null
+- Body :
+
+```json 
+{
+    "email" : "string",
+    "password" : "string",
+}
+```
+
+Response :
+
+```json 
+{
+    "data" : {
+        "no_registrasi": "string, unique",
+        "nama_lengkap": "string",
+        "id_sekolah_kelas": "string, unique",
+        "nama_sekolah_kelas": "12 SMA IPS",
+        "token": "string, unique",
+        "id_kelas_go": "string, unique",
+        "nama_kelas_go": "tring",
+        "id_jenis_layanan_go": "string, unique",
+        "jenis_layanan_go": "string",
+        "id_gedung_go": "string, unique",
+        "nama_gedung_go": "string",
+        "id_kota_go": "string, unique",
+        "nama_kota_go": "string",
+        "id_sekolah": "string, unique",
+        "nama_sekolah": "string",
+        "tahun_ajaran": "string",
+        "status_bayar": "enum",
+        "email": "string, unique",
+        "email_ortu": "string, unique",
+        "nomor_hp": "number, unique",
+        "nomor_hp_ortu": "number, unique",
+        "pilihan_ptn": [
+            "pilihan": [
+                {
+                    "pilihan": "number",
+                    "jurusan_id" : "string, unique",
+                },
+                {
+                    "pilihan": "number",
+                    "jurusan_id" : "string, unique",
+                }
+            ],
+            "historyPilihan": [
+                {
+                    "pilihan": "number",
+                    "id_jurusan": "string. unique",
+                    "created_at": "date",
+                }
+            ]
+        ],
+        "jobOrtu": "string",
+        "daftarAnak": "array",
+         "daftarProduk": [
+            {
+                "id_komponent_produk": "string, unique",
+                "id_bundling": "string, unique",
+                "nama_bundling": "string",
+                "nama_produk": "string",
+                "id_jenis_produk": "string, unique",,
+                "nama_jenis_produk": "string",
+                "tanggal_awal": "date",
+                "tanggal_akhir": "date",
+                "id_sekolah_kelas": "string, unique",
+            },
+        ],
+         "is_login": "boolean",
+         "is_aktif": "enum", 
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Login Orang Tua
+
+Request :
+- Method : POST
+- Endpoint : `/api/v1/login-ortu`
+- Header : null
+- Body :
+
+```json 
+{
+    "email" : "string",
+    "password" : "string",
+}
+```
+
+Response :
+
+```json 
+{
+    "data" : {
+        "id_device": "string, unique",
+        "token": "string, unique",
+        "email_ortu": "string, unique",
+        "nomor_hp_ortu": "number, unique",
+        "job_ortu": "string",
+        "daftarAnak": [
+            {
+                "no_registrasi": "string. unique",
+                "data": {
+                    "nama_lengkap": "string",
+                    "id_sekolah_kelas": "string, unique",
+                    "nama_sekolah_kelas": "12 SMA IPS",
+                    "token": "string, unique",
+                    "id_kelas_go": "string, unique",
+                    "nama_kelas_go": "tring",
+                    "id_jenis_layanan_go": "string, unique",
+                    "jenis_layanan_go": "string",
+                    "id_gedung_go": "string, unique",
+                    "nama_gedung_go": "string",
+                    "id_kota_go": "string, unique",
+                    "nama_kota_go": "string",
+                    "id_sekolah": "string, unique",
+                    "nama_sekolah": "string",
+                    "tahun_ajaran": "string",
+                    "status_bayar": "enum",
+                    "email": "string, unique",
+                    "email_ortu": "string, unique",
+                    "nomor_hp": "number, unique",
+                    "nomor_hp_ortu": "number, unique",
+                    "pilihan_ptn": [
+                        "pilihan": [
+                            {
+                                "pilihan": "number",
+                                "jurusan_id" : "string, unique",
+                            },
+                            {
+                                "pilihan": "number",
+                                "jurusan_id" : "string, unique",
+                            }
+                        ],
+                        "historyPilihan": [
+                            {
+                                "pilihan": "number",
+                                "id_jurusan": "string. unique",
+                                "created_at": "date",
+                            }
+                        ]
+                    ],
+                    "daftarProduk": [
+                        {
+                            "id_komponent_produk": "string, unique",
+                            "id_bundling": "string, unique",
+                            "nama_bundling": "string",
+                            "nama_produk": "string",
+                            "id_jenis_produk": "string, unique",,
+                            "nama_jenis_produk": "string",
+                            "tanggal_awal": "date",
+                            "tanggal_akhir": "date",
+                            "id_sekolah_kelas": "string, unique",
+                        },
+                    ],
+                }
+            },
+        ],
+         "is_login": "boolean", 
+         "is_aktif": "enum",
          "createdAt" : "date",
          "updatedAt" : "date"
     },
@@ -639,11 +841,123 @@ Response :
 # Laporan
 
 
-## Laporan TOBK
+## Laporan TOBK UTBK
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/laporan/tobk/{id_user}`
+- Endpoint : `/api/v1/laporan/tobk-utbk/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan TOBK UTBK Detail
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan/tobk-utbk/detail/{kode_tob}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan TOBK ANBK
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan/tobk-anbk/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan TOBK STAN
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan/tobk-stan/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "name" : "string",
+         "hasil" : "number",
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Laporan TOBK UjianSekolah
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan/tobk-ujian-sekolah/{id_user}`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -680,9 +994,17 @@ Response :
 ```json 
 {
     "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
+         "no_registrasi" : "string, unique",
+         "visual" : "number",
+         "auditory" : "number",
+         "kinestetik" : "number",
+         "dominan": [
+            {
+                "type": "string", // cnth: Visual, Auditory, Kinestetik
+                "judul": "string",
+                "deskripsi": "string"
+            }
+         ],
          "createdAt" : "date",
          "updatedAt" : "date"
     },
@@ -707,13 +1029,22 @@ Response :
 
 ```json 
 {
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
+    "data" : [
+        {
+            "id" : "string, unique",
+            "kode_kuis" : "string, unique",
+            "nama_kuis" : "string",
+            "kuis_detail" : [
+                {
+                    "level_soal": "number", // cnth: 1, 2, 3, 4, 5
+                    "total_benar": "number",
+                    "total_salah": "number",
+                }
+            ],
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        },   
+    ],
 
     "meta" : {
         "code" : "number",
@@ -736,11 +1067,30 @@ Response :
 ```json 
 {
     "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
-         "createdAt" : "date",
-         "updatedAt" : "date"
+         {
+             "date" : "date",
+             "list_presensi": [
+                {
+                    "id" : "string, unique",
+                    "kelas_go": "string, unique",
+                    "nama_kelas_go": "string",
+                    "waktu_presensi": "datetime",
+                    "flag": "boolean", // apakah produk kelas sama dengan kelas go
+                    "id_guru": "string, unique",
+                    "nama_guru": "string",
+                    "jadwal_mulai": "date",
+                    "jadwal_selesai": "date",
+                    "nama_gedung": "string",
+                    "aktifitas": "string",
+                    "pertemuan": "number",
+                    "mata_pelajaran": "string",
+                    "isFeedback": "boolean",
+                    "feedbackPermission": "boolean",
+                }
+            ],
+            "createdAt" : "date",
+            "updatedAt" : "date"
+         },
     },
 
     "meta" : {
@@ -763,13 +1113,15 @@ Response :
 
 ```json 
 {
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
+    "data" : [
+        {
+            "id": "string, unique", // cnth: id Buku teori, dll
+            "menu": "string",
+            "detail": "string",
+            "masuk": "date",
+            "keluar": "date"
+        }
+    ],
 
     "meta" : {
         "code" : "number",
