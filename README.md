@@ -79,7 +79,7 @@ Response :
          "kurikulum_detail": {
             "id": "string, unique",
             "nama_kurilkulum": "string",
-            "singkatan_kurikulum": "string",
+            "inisial_kurikulum": "string",
             "tahun_terbit": "number"
          },
          "daftar_produk_teaser": [
@@ -1348,7 +1348,7 @@ Response :
                         {
                             "id_mapel": "string, unique",
                             "nama_mapel": "string", // matematika, b,Indo, b.ing, dll
-                            "singkatan_maple": "string",
+                            "inisial_maple": "string",
                             "benar": "number",
                             "salah": "number",
                             "total_target": "number",
@@ -2016,7 +2016,7 @@ Response :
             "deskripsi": "string",
             "id_kelompok_ujian": "string, unique",
             "nama_kelompok_ujian": "string",
-            "singkatan": "string",
+            "inisial": "string",
             "waktu_pengerjaan": "time",
             "total_soal": "number",
             "opsi_urut": "string",
