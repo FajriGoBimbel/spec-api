@@ -415,6 +415,47 @@ Response :
 }
 ```
 
+## Change Password
+
+Request :
+- Method : PUT
+- Endpoint : `/api/v1/change-password/{id_user}`
+- Header : null
+- Body :
+
+```json 
+{
+    "new_password" : "string",
+    "password_confirm" : "string",
+}
+```
+
+Response :
+
+```json 
+{
+    "data" : {
+         "id" : "string, unique",
+         "nama_lengkap" : "string",
+         "nohp": "number",
+         "email" : "string",
+         "id_sekolah_kelas": "number",
+         "id_kurikulum": "number",
+         "status": "enum",
+         "token" : "string", 
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
 ## Send OTP Via WhatsApp
 
 Request :
