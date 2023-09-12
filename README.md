@@ -2184,10 +2184,10 @@ Response :
 {
     "data": [
         {
-            "nama_guru": "Rusdy Robert Downey Jr",
-            "mata_pelajaran": "Top Guru Matematika",
-            "pengalaman": "12 Tahun",
-            "pencapaian": "Pengalaman dan Prestasi",
+            "nama_guru": "string",
+            "mata_pelajaran": "string",
+            "pengalaman": "string || number",
+            "pencapaian": "string",
             "deskripsi": [
                 { "content": "string" },
             ],
@@ -2220,6 +2220,125 @@ Response :
             "title": "string",
             "description": "string",
             "link_video": "string",
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+# Simulasi
+
+## Get Simulasi Nilai
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/simulasi/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "tob": "string",
+            "isSelected": "boolean",
+            "isFix": "boolean",
+            "detail_nilai": {
+                "nama_subtes":  "string",
+                "nilai_score": "number",
+            }
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Get Simulasi Pilihan
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/simulasi/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "prioritas": "1",
+            "status": "boolean",
+            "universitas": "string",
+            "id_jurusan": "string, unique",
+            "nama_jurusan": "string",
+            "passing_grade": "number",
+            "peminat": {
+                "total": "number",
+                "tahun": "string"
+            },
+            "tampung": {
+                "total": "number",
+                "tahun": "string"
+            }
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Get Simulasi Hasil
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/simulasi/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "prioritas": "1",
+            "status": "boolean",
+            "universitas": "string",
+            "id_jurusan": "string, unique",
+            "nama_jurusan": "string",
+            "rumpun": null,
+            "passing_grade": "number",
+            "peminat": {
+                "total": "number",
+                "tahun": "string"
+            },
+            "tampung": {
+                "total": "number",
+                "tahun": "string"
+            },
+            "total": "number",
+            "saran": null
         }
     ],
 
