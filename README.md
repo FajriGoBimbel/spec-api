@@ -2327,7 +2327,7 @@ Response :
             "universitas": "string",
             "id_jurusan": "string, unique",
             "nama_jurusan": "string",
-            "rumpun": null,
+            "rumpun": "string || null",
             "passing_grade": "number",
             "peminat": {
                 "total": "number",
@@ -2338,7 +2338,54 @@ Response :
                 "tahun": "string"
             },
             "total": "number",
-            "saran": null
+            "saran": "string || null"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## My Bookmark 
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/simulasi/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "icon_mapel": "string",
+            "list_bookmark": [
+                {
+                    "id_soal": "string, unique",
+                    "isPaket": "boolean",
+                    "kode_bab": "string, unique",
+                    "kode_tob": "string, unique",
+                    "nama_bab": "string",
+                    "id_bundel": "string, unique",
+                    "isSimpan": "boolean",
+                    "kode_paket": "string, unique",
+                    "nomor_soal": "number",
+                    "last_update": "date",
+                    "id_jenis_produk": "number",
+                    "nomor_soal_siswa": "number",
+                    "nama_jenis_produk": "string",
+                    "tanggal_kadaluwarsa": "date || null"
+                },
+            ],
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial_kelompok_ujian": "string"
         }
     ],
 
