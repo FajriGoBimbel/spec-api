@@ -1330,6 +1330,56 @@ Response :
 
 # Leaderboard
 
+## Leaderboard
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/leaderboard`
+- Header : null
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "nasional_top_third": [
+                {
+                    "no_registrasi": "string, unique",
+                    "nama_lengkap": "string",
+                    "level": "number",
+                    "sort": "number",
+                    "rank": "number",
+                    "total": "number",
+                }
+            ],
+            "rank_position": [
+                {
+                    "type_rank": "string", //cnth: nasional, kota, cabang, gedung, sekolah
+
+                    // Get My Position Rank dan Get 3 Rank teratas dan 3 Rank terbawah
+                    "my_position_rank": [
+                        {
+                            "no_registrasi": "string, unique",
+                            "nama_lengkap": "string",
+                            "level": "number",
+                            "sort": "number",
+                            "rank": "number",
+                            "total": "number",
+                        }
+                    ]
+                }
+            ]
+        },
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
 
 ## Leaderboard First Rank
 
@@ -2029,6 +2079,106 @@ Response :
                     "inisial_mapel": "string"
                 }
             ],
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+# LandingPage
+
+
+## TOBK Go Nasional
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/landing-page/tobk-go-nasional`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "title": "string, unique",
+            "tanggal_pelaksanaan": "date",
+            "soon_date": "string || date", // cnth: Coming Soon 10 Oktober 2023
+            "soon_time": "string || date", // cnth: Pukul 09.00 - 12.00 WIB
+            "deskripsi": [
+                {
+                    "content": "string" 
+                }
+            ],
+            "path_router": "string",
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Top Guru
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/landing-page/top-guru`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "nama_guru": "Rusdy Robert Downey Jr",
+            "mata_pelajaran": "Top Guru Matematika",
+            "pengalaman": "12 Tahun",
+            "pencapaian": "Pengalaman dan Prestasi",
+            "deskripsi": [
+                { "content": "string" },
+            ],
+        },
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Testimoni Siswa
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/landing-page/testimoni-siswa`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "nama_siswa": "string",
+            "title": "string",
+            "description": "string",
+            "link_video": "string",
         }
     ],
 
