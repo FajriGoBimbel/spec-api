@@ -132,7 +132,7 @@ Response :
         "no_registrasi": "string, unique",
         "nama_lengkap": "string",
         "id_sekolah_kelas": "string, unique",
-        "nama_sekolah_kelas": "12 SMA IPS",
+        "nama_sekolah_kelas": "string",
         "token": "string, unique",
         "id_kelas_go": "string, unique",
         "nama_kelas_go": "tring",
@@ -154,11 +154,11 @@ Response :
             "pilihan": [
                 {
                     "pilihan": "number",
-                    "jurusan_id" : "string, unique",
+                    "id_jurusan" : "string, unique",
                 },
                 {
                     "pilihan": "number",
-                    "jurusan_id" : "string, unique",
+                    "id_jurusan" : "string, unique",
                 }
             ],
             "historyPilihan": [
@@ -169,9 +169,8 @@ Response :
                 }
             ]
         ],
-        "jobOrtu": "string",
-        "daftarAnak": "array",
-         "daftarProduk": [
+        "job_ortu": "string",
+         "daftar_produk": [
             {
                 "id_komponent_produk": "string, unique",
                 "id_bundling": "string, unique",
@@ -184,8 +183,8 @@ Response :
                 "id_sekolah_kelas": "string, unique",
             },
         ],
-         "is_login": "boolean",
-         "is_aktif": "enum", 
+         "isLogin": "boolean",
+         "isAktif": "enum", 
          "createdAt" : "date",
          "updatedAt" : "date"
     },
@@ -229,7 +228,7 @@ Response :
                 "data": {
                     "nama_lengkap": "string",
                     "id_sekolah_kelas": "string, unique",
-                    "nama_sekolah_kelas": "12 SMA IPS",
+                    "nama_sekolah_kelas": "string",
                     "token": "string, unique",
                     "id_kelas_go": "string, unique",
                     "nama_kelas_go": "tring",
@@ -282,8 +281,8 @@ Response :
                 }
             },
         ],
-         "is_login": "boolean", 
-         "is_aktif": "enum",
+         "isLogin": "boolean", 
+         "isAktif": "enum",
          "createdAt" : "date",
          "updatedAt" : "date"
     },
@@ -853,13 +852,35 @@ Response :
 
 ```json 
 {
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
+    "data" : [
+        {
+            "kode_tob" : "string, unique",
+            "nama_tob" : "string",
+            "sistem_penilaian" : "enum", // cnth : IRT
+            "tanggal_selesai": "date",
+            "isSolusi": "boolean",
+            "info": [
+                {
+                    "id_kelompok_jurusan":  "string, unique",
+                    "nama_kelompok": "string",
+                    "universitas": "string",
+                    "jurusan": "string",
+                    "passing_grade": "number",
+                    "nilai_score": "number",
+                }
+            ],
+            "list_nilai": [
+                {
+                    "nama_subtes":  "string",
+                    "nilai_score": "number",
+                }
+            ],
+            "isEPB": "boolean",
+            "link_download_epb": "string",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
 
     "meta" : {
         "code" : "number",
@@ -881,13 +902,31 @@ Response :
 
 ```json 
 {
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
+    "data" : [
+        "pilihan_ptn": [
+            {
+                "id_kelompok_jurusan": "string, unique",
+                "nama_kelompok_jurusan": "string",
+                "universitas": "string",
+                "jurusan": "string",
+                "passing_grade": "number",
+                "nilai_score": "number"
+            },
+        ],
+        "nilai_tobk": [
+            {
+                "kode_soal": "string, unique",
+                "nama_kelompok_ujian": "string",
+                "inisial_kelompok_ujian": "string",
+                "total_benar": "number",
+                "total_salah": "number",
+                "total_kosong": "number",
+                "jumlah_soal": "number",
+                "nilai": "number",
+                "nilai_max": "number",
+            },
+        ]
+    ],
 
     "meta" : {
         "code" : "number",
@@ -909,13 +948,35 @@ Response :
 
 ```json 
 {
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
+    "data" : [
+        {
+            "kode_tob" : "string, unique",
+            "nama_tob" : "string",
+            "sistem_penilaian" : "enum", // cnth : IRT
+            "tanggal_selesai": "date",
+            "isSolusi": "boolean",
+            "info": [
+                {
+                    "id_kelompok_jurusan":  "string, unique",
+                    "nama_kelompok": "string",
+                    "universitas": "string",
+                    "jurusan": "string",
+                    "passing_grade": "number",
+                    "nilai_score": "number",
+                }
+            ],
+            "list_nilai": [
+                {
+                    "nama_subtes":  "string",
+                    "nilai_score": "number",
+                }
+            ],
+            "isEPB": "boolean",
+            "link_download_epb": "string",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
 
     "meta" : {
         "code" : "number",
@@ -937,13 +998,35 @@ Response :
 
 ```json 
 {
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
+    "data" : [
+        {
+            "kode_tob" : "string, unique",
+            "nama_tob" : "string",
+            "sistem_penilaian" : "enum", // cnth : IRT
+            "tanggal_selesai": "date",
+            "isSolusi": "boolean",
+            "info": [
+                {
+                    "id_kelompok_jurusan":  "string, unique",
+                    "nama_kelompok": "string",
+                    "universitas": "string",
+                    "jurusan": "string",
+                    "passing_grade": "number",
+                    "nilai_score": "number",
+                }
+            ],
+            "list_nilai": [
+                {
+                    "nama_subtes":  "string",
+                    "nilai_score": "number",
+                }
+            ],
+            "isEPB": "boolean",
+            "link_download_epb": "string",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
 
     "meta" : {
         "code" : "number",
@@ -965,13 +1048,35 @@ Response :
 
 ```json 
 {
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "hasil" : "number",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
+    "data" : [
+        {
+            "kode_tob" : "string, unique",
+            "nama_tob" : "string",
+            "sistem_penilaian" : "enum", // cnth : IRT
+            "tanggal_selesai": "date",
+            "isSolusi": "boolean",
+            "info": [
+                {
+                    "id_kelompok_jurusan":  "string, unique",
+                    "nama_kelompok": "string",
+                    "universitas": "string",
+                    "jurusan": "string",
+                    "passing_grade": "number",
+                    "nilai_score": "number",
+                }
+            ],
+            "list_nilai": [
+                {
+                    "nama_subtes":  "string",
+                    "nilai_score": "number",
+                }
+            ],
+            "isEPB": "boolean",
+            "link_download_epb": "string",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
 
     "meta" : {
         "code" : "number",
@@ -1200,7 +1305,7 @@ Response :
                     "nama_kategori": "string", // cnth: Literasi Bahasa, penalaran
                     "mapel": [
                         {
-                            "id_mapel": "string",
+                            "id_mapel": "string, unique",
                             "nama_mapel": "string", // matematika, b,Indo, b.ing, dll
                             "singkatan_maple": "string",
                             "benar": "number",
@@ -1238,7 +1343,7 @@ Response :
 {
     "data" : [
         {
-            "NIS": "string",
+            "NIS": "string, unique",
             "total": "number",
             "tipe": "string", // Nasional, Kota, cabang, gedung, sekolah
             "no_registrasi": "string",
@@ -1256,14 +1361,13 @@ Response :
 }
 ```
 
+# Perguruan Tinggi
 
-# TOBK
-
-## TOBK
+## Universitas
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tobk`
+- Endpoint : `/api/v1/universitas`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -1273,14 +1377,658 @@ Response :
 {
     "data" : [
         {
-            "kode_tobk": "string",
-            "id_sekolah_kelas": "number",
-            "tahap_tobk": "string", // cnth : tobk1, tobk2, tobk3, dll
-            "date_mulai_tobk": "date",
-            "jam_mulai_tobk": "datetime",
-            "durasi_tobk": "time",
-            "status_pembayaran": "enum", // cnth: belum lunas, cicilan, lunas
-            "type_tobk": "enum", // cnth: Online, Offline
+            "id_universitas": "string, unique",
+            "nama_universitas": "string",
+            "inisial_universitas": "string",
+            "jenis": "enum"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Jurusan
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/universitas/{id_universitas}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "id_universitas": "string, unique",
+            "id_jurusan": "string, unique",
+            "nama_jurusan": "string",
+            "kelompok_jurusan": "string",
+            "rumpun_jurusan": "string",
+            "info": {
+                "peminat": [
+                    {
+                        "jumlah": "number",
+                        "tahun": "string"
+                    }
+                ],
+                "tampung": [
+                    {
+                        "jumlah": "number",
+                        "tahun": "string"
+                    }
+                ],
+            },
+            "passing_grade": "number",
+            "lintas_jurusan": "boolean",
+            "deskripsi": "string",
+            "lapangan_kerja": "string"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Jurusan Detail
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/universitas/jurusan/{id_jurusan}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+        "id_universitas": "string, unique",
+        "id_jurusan": "string, unique",
+        "nama_jurusan": "string",
+        "kelompok_jurusan": "string",
+        "rumpun_jurusan": "string",
+        "info": {
+            "peminat": [
+                {
+                    "jumlah": "number",
+                    "tahun": "string"
+                }
+            ],
+            "tampung": [
+                {
+                    "jumlah": "number",
+                    "tahun": "string"
+                }
+            ],
+        },
+        "passing_grade": "number",
+        "lintas_jurusan": "boolean",
+        "deskripsi": "string",
+        "lapangan_kerja": "string"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Pilihan PTN User
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/ptn-pilihan/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        "pilihan": [
+            {
+                "pilihan": "number",
+                "id_universitas": "string, unique",
+                "nama_universitas": "string",
+                "inisial_universitas": "string",
+                "id_jurusan" : "string, unique",
+                "nama_jurusan": "string",
+                "peminat": "number",
+                "daya_tampung": "number",
+                "created_at": "date",
+                "updated_at": "date",
+            },
+        ],
+        "historyPilihan": [
+            {
+                "pilihan": "number",
+                "id_universitas": "string. unique",
+                "id_jurusan": "string. unique",
+                "nama_universitas": "string",
+                "inisial_universitas": "string",
+                "nama_jurusan": "string",
+                "peminat": "number",
+                "daya_tampung": "number",
+                "created_at": "date",
+            }
+        ]
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+# Tryout
+
+## Tryout Soal (Get Soal TO)
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "id_soal": "string, unique",
+            "soal": "string",
+            "opsi": [
+                {
+                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                    "text": "string",
+                    "isJawaban": "boolean",
+                }
+            ],
+            "id_wacana": "string, unique",
+            "id_tipe_soal": "string, unique",
+            "tipe_soal": "string",
+            "tingkat_kesulitan": "number",
+            "wacana": "string",
+            "nama_kelompok_ujian": "string",
+            "kode_paket": "string, unique",
+            "id_bundel": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_video": "string, unique",
+            "nomor_soal": "number"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## List Produk Tryout (Get Daftar TOB)
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "kode_tob": "string, unique",
+            "nama_tob": "string",
+            "jenis_tob": "string || enum",
+            "tanggal_mulai": "date",
+            "tanggal_selesai": "date",
+            "jarak_antar_paket": "number",
+            "isKurikulumMerdeka": "boolean",
+            "isBersyarat": "boolean",
+            "jenis": "string",
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Paket tryout (Get Daftar Paket TO)
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "kode_tob": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_jenis_produk": "string, unique",
+            "id_sekolah_kelas": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "nomor_urut": "number",
+            "isBlockingTime": "boolean",
+            "totalWaktu": "time",
+            "total_soal": "number",
+            "isRandom": "boolean",
+            "isSelesai": "boolean",
+            "isPernahMengerjakan": "boolean",
+            "isOK": "boolean",
+            "tanggal_mulai": "date",
+            "tanggal_deadline": "date",
+            "tanggal_pengumpulan": "date",
+            "merk": "Unknown",
+            "keterangan": null,
+            "pilihan_siswa": null,
+            "flag": null,
+            "waktu_habis": "boolean",
+            "isWajib": "boolean"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Kisi-Kisi tryout (Get Kisi-kisi)
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+           "kelompok_ujian": "string",
+           "info": [
+                {
+                    "nama_bab": "string",
+                    "kode_bab": "string",
+                    "level_teori": "string || enum",
+                    "id_mapel": "string",
+                    "inisial_mapel": "string"
+                },
+           ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Cek syarat tryout (Cek Boleh TO)
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": {
+            "isLulus": "boolean",
+            "isSelesai": "boolean",
+            "total_soal": "number",
+            "total_benar": "number",
+            "total_salah": "number",
+            "total_kosong": "number",
+            "listEmpati": [
+                {
+                    "kode_tob": "string, unique",
+                    "kode_paket": "string, unique",
+                    "total_soal": "number",
+                    "total_benar": "number",
+                    "total_salah": "number",
+                    "isBoleh": "boolean",
+                },
+            ]
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Get Daftar Soal TO
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": {
+        "waktu": "time",
+        "data_detail": [
+            {
+                "wacana": "",
+                "id_soal": "string, unique",
+                "nomor_soal": "1",
+                "id_wacana": "string, unique",
+                "id_bundel": "string, unique",
+                "id_kelompok_ujian": "string, unique",
+                "nama_kelompok_ujian": "string",
+                "id_video": "string, unique",
+                "soal": "string",
+                "opsi": [
+                    {
+                        "pilihan": "string, unique", // cnth:  A, B, C, D
+                        "text": "string",
+                        "isJawaban": "boolean",
+                    }
+                ],
+                "tipe_soal": "enum || string",
+                "tingkat_kesulitan": "number",
+                "kode_paket": "EMWA-754" //cnth: EMWA-754
+            }
+        ]
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Get Syarat TO (Belum ada diaji)
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "kode_tob": "string, unique",
+            "nama_tob": "string",
+            "jenis_tob": "string || enum",
+            "tanggal_mulai": "date",
+            "tanggal_selesai": "date",
+            "jarak_antar_paket": "number",
+            "isKurikulumMerdeka": "boolean",
+            "isBersyarat": "boolean",
+            "jenis": "string",
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Get Daftar Paket Basic
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "isLulus": "boolean",
+            "id_jenis_produk": "string, unique",
+            "IsBlockingTime": "boolean",
+            "id_sekolah_kelas": "41",
+            "tanggal_berlaku": "date",
+            "tanggal_kedaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Get Daftar Paket TO 2
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_jenis_produk": "string, unique",
+            "id_sekolah_kelas": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "nomor_urut": "number",
+            "isBlockingTime": "boolean",
+            "tanggal_berlaku": "date",
+            "tanggal_kadaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string",
+            "isSelesai": "boolean",
+            "isPernahMengerjakan": "boolean",
+            "tanggal_mulai": "date",
+            "tanggal_deadline": "date",
+            "tanggal_pengumpulan": "date",
+            "merk": "Unknown",
+            "waktu_habis": "boolean"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Get Daftar Bundel
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "singkatan": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Get Daftar Bab
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Get Soal
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+
+
+
+```json 
+{
+    "data": [
+        {
+            "waktu": "time",
+            "data_detail": [
+                {
+                    "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
+                }
+            ],
         }
     ],
 
