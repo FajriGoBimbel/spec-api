@@ -1,6 +1,10 @@
 # API Spec
 
-## Registrasi Akun
+## Auth
+
+### Registrasi
+
+#### Registrasi Akun
 
 Request :
 - Method : POST
@@ -42,9 +46,9 @@ Response :
 }
 ```
 
-## Login
+### Login
 
-### Login Tamu
+#### Login Tamu
 
 Request :
 - Method : POST
@@ -109,7 +113,7 @@ Response :
 }
 ```
 
-### Login Siswa
+#### Login Siswa
 
 Request :
 - Method : POST
@@ -197,7 +201,7 @@ Response :
 }
 ```
 
-### Login Orang Tua
+#### Login Orang Tua
 
 Request :
 - Method : POST
@@ -295,7 +299,7 @@ Response :
 }
 ```
 
-## Lupa Password
+### Lupa Password
 
 Request :
 - Method : POST
@@ -334,7 +338,7 @@ Response :
 }
 ```
 
-## Reset Password Pilihan 1
+### Reset Password Pilihan 1
 
 Request :
 - Method : PUT
@@ -375,7 +379,7 @@ Response :
 }
 ```
 
-## Reset Password Pilihan 2
+### Reset Password Pilihan 2
 
 Request :
 - Method : PUT
@@ -415,7 +419,7 @@ Response :
 }
 ```
 
-## Change Password
+### Change Password
 
 Request :
 - Method : PUT
@@ -455,8 +459,9 @@ Response :
 }
 ```
 
+## SEND Verfikasi dan Validasi
 
-## Send OTP Via WhatsApp
+### Send OTP Via WhatsApp
 
 Request :
 - Method : POST
@@ -496,7 +501,7 @@ Response :
 }
 ```
 
-## Send OTP Via SMS
+### Send OTP Via SMS
 
 Request :
 - Method : POST
@@ -536,7 +541,7 @@ Response :
 }
 ```
 
-## Send Email Verification Mobile App
+### Send Email Verification Mobile App
 
 Request :
 - Method : POST
@@ -576,7 +581,7 @@ Response :
 }
 ```
 
-## Send Email Verification Website Client
+### Send Email Verification Website Client
 
 Request :
 - Method : POST
@@ -615,10 +620,10 @@ Response :
 }
 ```
 
-# LandingPage
 
+## LandingPage
 
-## TOBK Go Nasional
+### TOBK Go Nasional
 
 Request :
 - Method : GET
@@ -654,7 +659,7 @@ Response :
 ```
 
 
-## Top Guru
+### Top Guru
 
 Request :
 - Method : GET
@@ -686,7 +691,7 @@ Response :
 }
 ```
 
-## Testimoni Siswa
+### Testimoni Siswa
 
 Request :
 - Method : GET
@@ -715,8 +720,9 @@ Response :
 }
 ```
 
+## Product
 
-## Get Product
+### Get Product
 
 Request :
 - Method : POST
@@ -754,7 +760,7 @@ Response :
 ```
 
 
-## Get Product Detail
+### Get Product Detail
 
 Request :
 - Method : GET
@@ -789,10 +795,9 @@ Response :
 }
 ```
 
-# Laporan
+## Laporan
 
-
-## Laporan TOBK UTBK
+### Laporan TOBK UTBK
 
 Request :
 - Method : GET
@@ -842,7 +847,7 @@ Response :
 }
 ```
 
-## Laporan TOBK UTBK Detail
+### Laporan TOBK UTBK Detail
 
 Request :
 - Method : GET
@@ -888,7 +893,7 @@ Response :
 }
 ```
 
-## Laporan TOBK ANBK
+### Laporan TOBK ANBK
 
 Request :
 - Method : GET
@@ -938,7 +943,7 @@ Response :
 }
 ```
 
-## Laporan TOBK STAN
+### Laporan TOBK STAN
 
 Request :
 - Method : GET
@@ -988,7 +993,7 @@ Response :
 }
 ```
 
-## Laporan TOBK UjianSekolah
+### Laporan TOBK UjianSekolah
 
 Request :
 - Method : GET
@@ -1038,7 +1043,7 @@ Response :
 }
 ```
 
-## Laporan Tes VAK
+### Laporan Tes VAK
 
 Request :
 - Method : GET
@@ -1074,7 +1079,44 @@ Response :
 }
 ```
 
-## Laporan Tes Kuis
+### Laporan Hasil GOA
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan/goa/{id_user}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+         "jumlah_remedial" : "number",
+         "dominan": [
+            {
+                "id_kelompok_ujian": "string, unique",
+                "nama_kelompok_ujian": "string",
+                "total_benar": "number",
+                "total_salah": "number",
+                "total_kosong": "number",
+                "target_lulus": "number || null"
+                "isLulus": "boolean",
+            }
+         ],
+         "createdAt" : "date",
+         "updatedAt" : "date"
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Laporan Tes Kuis
 
 Request :
 - Method : GET
@@ -1111,7 +1153,7 @@ Response :
 }
 ```
 
-## Laporan Presensi Kegiatan Belajar Mengajar (KBM)
+### Laporan Presensi Kegiatan Belajar Mengajar (KBM)
 
 Request :
 - Method : GET
@@ -1158,7 +1200,7 @@ Response :
 }
 ```
 
-## Laporan Aktivitas Belajar Siswa (ABS)
+### Laporan Aktivitas Belajar Siswa (ABS)
 
 Request :
 - Method : GET
@@ -1188,7 +1230,7 @@ Response :
 }
 ```
 
-## Laporan Buku Sakti
+### Laporan Buku Sakti
 
 Request :
 - Method : GET
@@ -1237,7 +1279,7 @@ Response :
 }
 ```
 
-## Laporan Progress Hasil Latihan Buku Sakti
+### Laporan Progress Hasil Latihan Buku Sakti
 
 Request :
 - Method : GET
@@ -1279,10 +1321,9 @@ Response :
 }
 ```
 
-
-# Leaderboard
-
 ## Leaderboard
+
+### Leaderboard
 
 Request :
 - Method : GET
@@ -1333,7 +1374,7 @@ Response :
 ```
 
 
-## Leaderboard First Rank
+### Leaderboard First Rank
 
 Request :
 - Method : GET
@@ -1363,9 +1404,9 @@ Response :
 }
 ```
 
-# Perguruan Tinggi
+## Perguruan Tinggi
 
-## Universitas
+### Universitas
 
 Request :
 - Method : GET
@@ -1394,7 +1435,7 @@ Response :
 }
 ```
 
-## Jurusan
+### Jurusan
 
 Request :
 - Method : GET
@@ -1442,7 +1483,7 @@ Response :
 }
 ```
 
-## Jurusan Detail
+### Jurusan Detail
 
 Request :
 - Method : GET
@@ -1488,7 +1529,7 @@ Response :
 }
 ```
 
-## Pilihan PTN User
+### Pilihan PTN User
 
 Request :
 - Method : GET
@@ -1538,14 +1579,13 @@ Response :
 }
 ```
 
+## GOA & VAK
 
-# Tryout
-
-## Tryout Soal (Get Soal TO)
+### List GOA
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tryout`
+- Endpoint : `/api/v1/goa/list`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -1553,7 +1593,89 @@ Response :
 
 ```json 
 {
-    "data" : [
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_jenis_produk": "string, unique",
+            "id_sekolah_kelas": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "nomor_urut": "number",
+            "isBlockingTime": "boolean",
+            "tanggal_berlaku": "date",
+            "tanggal_kadaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string",
+            "isSelesai": "boolean",
+            "isPernahMengerjakan": "boolean",
+            "tanggal_mulai": "date",
+            "tanggal_deadline": "date",
+            "tanggal_pengumpulan": "date",
+            "merk": "Unknown",
+            "waktu_habis": "boolean"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List VAK
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/vak/list`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "isLulus": "boolean",
+            "id_jenis_produk": "string, unique",
+            "IsBlockingTime": "boolean",
+            "id_sekolah_kelas": "41",
+            "tanggal_berlaku": "date",
+            "tanggal_kedaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal GOA
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/goa/soal`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
         {
             "id_soal": "string, unique",
             "soal": "string",
@@ -1575,6 +1697,102 @@ Response :
             "id_kelompok_ujian": "string, unique",
             "id_video": "string, unique",
             "nomor_soal": "number"
+        },
+        "waktu": "time",
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal VAK
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/vak/soal`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": {
+        "waktu": "time",
+        "data_detail": [
+            {
+                "wacana": "",
+                "id_soal": "string, unique",
+                "nomor_soal": "1",
+                "id_wacana": "string, unique",
+                "id_bundel": "string, unique",
+                "id_kelompok_ujian": "string, unique",
+                "nama_kelompok_ujian": "string",
+                "id_video": "string, unique",
+                "soal": "string",
+                "opsi": [
+                    {
+                        "pilihan": "string, unique", // cnth:  A, B, C, D
+                        "text": "string",
+                        "isJawaban": "boolean",
+                    }
+                ],
+                "tipe_soal": "enum || string",
+                "tingkat_kesulitan": "number",
+                "kode_paket": "EMWA-754" //cnth: EMWA-754
+            }
+        ]
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Racing
+
+### List Racing
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/racing/list`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_jenis_produk": "string, unique",
+            "id_sekolah_kelas": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "nomor_urut": "number",
+            "isBlockingTime": "boolean",
+            "tanggal_berlaku": "date",
+            "tanggal_kadaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string",
+            "isSelesai": "boolean",
+            "isPernahMengerjakan": "boolean",
+            "tanggal_mulai": "date",
+            "tanggal_deadline": "date",
+            "tanggal_pengumpulan": "date",
+            "merk": "Unknown",
+            "waktu_habis": "boolean"
         }
     ],
 
@@ -1586,11 +1804,60 @@ Response :
 }
 ```
 
-## List Produk Tryout (Get Daftar TOB)
+### Soal Racing
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tryout`
+- Endpoint : `/api/v1/racing/soal`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+        {
+            "id_soal": "string, unique",
+            "soal": "string",
+            "opsi": [
+                {
+                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                    "text": "string",
+                    "isJawaban": "boolean",
+                }
+            ],
+            "id_wacana": "string, unique",
+            "id_tipe_soal": "string, unique",
+            "tipe_soal": "string",
+            "tingkat_kesulitan": "number",
+            "wacana": "string",
+            "nama_kelompok_ujian": "string",
+            "kode_paket": "string, unique",
+            "id_bundel": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_video": "string, unique",
+            "nomor_soal": "number"
+        },
+        "waktu": "time",
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## TOBK
+
+
+### List TOBK
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout/list`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -1620,12 +1887,11 @@ Response :
 }
 ```
 
-
-## Paket tryout (Get Daftar Paket TO)
+### Daftar Kelompok TOBK
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tryout`
+- Endpoint : `/api/v1/tryout/daftar-kelompok-ujian`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -1669,11 +1935,59 @@ Response :
 }
 ```
 
-## Kisi-Kisi tryout (Get Kisi-kisi)
+
+### Soal TOBK
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tryout`
+- Endpoint : `/api/v1/tryout/soal`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+        {
+            "id_soal": "string, unique",
+            "soal": "string",
+            "opsi": [
+                {
+                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                    "text": "string",
+                    "isJawaban": "boolean",
+                }
+            ],
+            "id_wacana": "string, unique",
+            "id_tipe_soal": "string, unique",
+            "tipe_soal": "string",
+            "tingkat_kesulitan": "number",
+            "wacana": "string",
+            "nama_kelompok_ujian": "string",
+            "kode_paket": "string, unique",
+            "id_bundel": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_video": "string, unique",
+            "nomor_soal": "number"
+        },
+        "waktu": "time",
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+### Kisi - Kisi TOBK
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/tryout/kisi-kisi`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -1704,11 +2018,12 @@ Response :
 }
 ```
 
-## Cek syarat tryout (Cek Boleh TO)
+
+### Cek Boleh TOBK
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tryout`
+- Endpoint : `/api/v1/tryout/cek-boleh-to`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -1743,11 +2058,523 @@ Response :
 }
 ```
 
-## Get Daftar Soal TO
+
+### Get Syarat TOBK
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tryout`
+- Endpoint : `/api/v1/tryout/syarat`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "kode_tob": "string, unique",
+            "nama_tob": "string",
+            "jenis_tob": "string || enum",
+            "tanggal_mulai": "date",
+            "tanggal_selesai": "date",
+            "jarak_antar_paket": "number",
+            "isKurikulumMerdeka": "boolean",
+            "isBersyarat": "boolean",
+            "jenis": "string",
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Buku Sakti
+
+### List Buku Sakti - EMWA
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/emwa`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "isLulus": "boolean",
+            "id_jenis_produk": "string, unique",
+            "IsBlockingTime": "boolean",
+            "id_sekolah_kelas": "41",
+            "tanggal_berlaku": "date",
+            "tanggal_kedaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - EMMA
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/emma`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "isLulus": "boolean",
+            "id_jenis_produk": "string, unique",
+            "IsBlockingTime": "boolean",
+            "id_sekolah_kelas": "41",
+            "tanggal_berlaku": "date",
+            "tanggal_kedaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Lateks
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/lateks`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Soal Koding
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/soal-koding`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Pendalaman Materi
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/pendalaman-materi`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Soal Referensi
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/soal-referensi`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Kuis
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/kuis`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_jenis_produk": "string, unique",
+            "id_sekolah_kelas": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "nomor_urut": "number",
+            "isBlockingTime": "boolean",
+            "tanggal_berlaku": "date",
+            "tanggal_kadaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string",
+            "isSelesai": "boolean",
+            "isPernahMengerjakan": "boolean",
+            "tanggal_mulai": "date",
+            "tanggal_deadline": "date",
+            "tanggal_pengumpulan": "date",
+            "merk": "Unknown",
+            "waktu_habis": "boolean"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Paket Intensif
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/paket-intensif`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Lateks
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/lateks`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Soal Koding
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/soal-koding`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Pendalaman Materi
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/pendalaman-materi`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Soal Referensi
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/soal-referensi`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Paket Intensif
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/paket-intensif`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - EMWA
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal-emwa`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -1790,11 +2617,11 @@ Response :
 }
 ```
 
-## Get Syarat TO (Belum ada diaji)
+### Soal Buku Sakti - EMMA
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tryout`
+- Endpoint : `/api/v1/buku-sakti/soal-emma`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -1802,19 +2629,32 @@ Response :
 
 ```json 
 {
-    "data" : [
-        {
-            "kode_tob": "string, unique",
-            "nama_tob": "string",
-            "jenis_tob": "string || enum",
-            "tanggal_mulai": "date",
-            "tanggal_selesai": "date",
-            "jarak_antar_paket": "number",
-            "isKurikulumMerdeka": "boolean",
-            "isBersyarat": "boolean",
-            "jenis": "string",
-        }
-    ],
+    "data": {
+        "waktu": "time",
+        "data_detail": [
+            {
+                "wacana": "",
+                "id_soal": "string, unique",
+                "nomor_soal": "1",
+                "id_wacana": "string, unique",
+                "id_bundel": "string, unique",
+                "id_kelompok_ujian": "string, unique",
+                "nama_kelompok_ujian": "string",
+                "id_video": "string, unique",
+                "soal": "string",
+                "opsi": [
+                    {
+                        "pilihan": "string, unique", // cnth:  A, B, C, D
+                        "text": "string",
+                        "isJawaban": "boolean",
+                    }
+                ],
+                "tipe_soal": "enum || string",
+                "tingkat_kesulitan": "number",
+                "kode_paket": "EMWA-754" //cnth: EMWA-754
+            }
+        ]
+    },
 
     "meta" : {
         "code" : "number",
@@ -1824,150 +2664,57 @@ Response :
 }
 ```
 
-## Get Daftar Paket Basic
+### Soal Buku Sakti - Lateks
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tryout`
+- Endpoint : `/api/v1/buku-sakti/soal-lateks`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
 Response :
 
-```json 
-{
-    "data": [
-        {
-            "kode_tob": "string, unique",
-            "kode_paket": "string, unique",
-            "deskripsi": "string",
-            "isLulus": "boolean",
-            "id_jenis_produk": "string, unique",
-            "IsBlockingTime": "boolean",
-            "id_sekolah_kelas": "41",
-            "tanggal_berlaku": "date",
-            "tanggal_kedaluwarsa": "date",
-            "total_waktu": "time",
-            "total_soal": "number",
-            "jenis": "string"
-        }
-    ],
 
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
 
-## Get Daftar Paket TO 2
-
-Request :
-- Method : GET
-- Endpoint : `/api/v1/tryout`
-- Header :
-    - Accept: application/json
-    - Authorization : "Bearer " + Token
-Response :
 
 ```json 
 {
     "data": [
         {
-            "kode_tob": "string, unique",
-            "id_kelompok_ujian": "string, unique",
-            "id_jenis_produk": "string, unique",
-            "id_sekolah_kelas": "string, unique",
-            "kode_paket": "string, unique",
-            "deskripsi": "string",
-            "nomor_urut": "number",
-            "isBlockingTime": "boolean",
-            "tanggal_berlaku": "date",
-            "tanggal_kadaluwarsa": "date",
-            "total_waktu": "time",
-            "total_soal": "number",
-            "jenis": "string",
-            "isSelesai": "boolean",
-            "isPernahMengerjakan": "boolean",
-            "tanggal_mulai": "date",
-            "tanggal_deadline": "date",
-            "tanggal_pengumpulan": "date",
-            "merk": "Unknown",
-            "waktu_habis": "boolean"
-        }
-    ],
-
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
-
-
-## Get Daftar Bundel
-
-Request :
-- Method : GET
-- Endpoint : `/api/v1/tryout`
-- Header :
-    - Accept: application/json
-    - Authorization : "Bearer " + Token
-Response :
-
-```json 
-{
-    "data": [
-        {
-            "id_bundel": "string, unique",
-            "kode_tob": "string, unique",
-            "kode_paket": "string, unique",
-            "deskripsi": "string",
-            "id_kelompok_ujian": "string, unique",
-            "nama_kelompok_ujian": "string",
-            "inisial": "string",
-            "waktu_pengerjaan": "time",
-            "total_soal": "number",
-            "opsi_urut": "string",
-            "id_sekolah_kelas": "string, unique",
-            "jenis": "string" //cnth: teaser
-        }
-    ],
-
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
-
-
-## Get Daftar Bab
-
-Request :
-- Method : GET
-- Endpoint : `/api/v1/tryout`
-- Header :
-    - Accept: application/json
-    - Authorization : "Bearer " + Token
-Response :
-
-```json 
-{
-    "data": [
-        {
-            "bab_utama": "string",
-            "info": [
+            "waktu": "time",
+            "data_detail": [
                 {
-                    "nama_bab": "string",
-                    "jumlah_soal": "number",
-                    "kode_bab": "string, unique",
                     "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
                 }
-            ]
+            ],
         }
     ],
 
@@ -1979,12 +2726,243 @@ Response :
 }
 ```
 
-
-## Get Soal
+### Soal Buku Sakti - Soal Koding
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/tryout`
+- Endpoint : `/api/v1/buku-sakti/soal/soal-koding`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+
+
+
+```json 
+{
+    "data": [
+        {
+            "waktu": "time",
+            "data_detail": [
+                {
+                    "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
+                }
+            ],
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Pendalaman Materi
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal/pendalaman-materi`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+
+
+
+```json 
+{
+    "data": [
+        {
+            "waktu": "time",
+            "data_detail": [
+                {
+                    "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
+                }
+            ],
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Soal Referensi
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal/soal-referensi`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+
+
+
+```json 
+{
+    "data": [
+        {
+            "waktu": "time",
+            "data_detail": [
+                {
+                    "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
+                }
+            ],
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Kuis
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal-kuis`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+        {
+            "id_soal": "string, unique",
+            "soal": "string",
+            "opsi": [
+                {
+                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                    "text": "string",
+                    "isJawaban": "boolean",
+                }
+            ],
+            "id_wacana": "string, unique",
+            "id_tipe_soal": "string, unique",
+            "tipe_soal": "string",
+            "tingkat_kesulitan": "number",
+            "wacana": "string",
+            "nama_kelompok_ujian": "string",
+            "kode_paket": "string, unique",
+            "id_bundel": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_video": "string, unique",
+            "nomor_soal": "number"
+        },
+        "waktu": "time",
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Paket Intensif
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal/paket-intensif`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -2043,13 +3021,14 @@ Response :
 ```
 
 
-# Simulasi
 
-## Get Simulasi Nilai
+## Simulasi
+
+### Get Simulasi Nilai
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/simulasi/`
+- Endpoint : `/api/v1/simulasi-nilai/`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -2078,12 +3057,11 @@ Response :
 }
 ```
 
-
-## Get Simulasi Pilihan
+### Get Simulasi Pilihan
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/simulasi/`
+- Endpoint : `/api/v1/simulasi-pilihan/`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -2118,8 +3096,7 @@ Response :
 }
 ```
 
-
-## Get Simulasi Hasil
+### Get Simulasi Hasil
 
 Request :
 - Method : GET
@@ -2161,7 +3138,10 @@ Response :
 }
 ```
 
-## My Bookmark 
+
+## Bookmark
+
+### My Bookmark 
 
 Request :
 - Method : GET
@@ -2209,9 +3189,9 @@ Response :
 ```
 
 
-# Pembayaran
+## Pembayaran
 
-## Get Pembayaran
+### Get Pembayaran
 
 Request :
 - Method : GET
@@ -2242,7 +3222,7 @@ Response :
 ```
 
 
-## Get Pembayaran Detail
+### Get Pembayaran Detail
 
 Request :
 - Method : GET
