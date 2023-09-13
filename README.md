@@ -615,38 +615,35 @@ Response :
 }
 ```
 
+# LandingPage
 
-## Create Product
+
+## TOBK Go Nasional
 
 Request :
-- Method : POST
-- Endpoint : `/api/v1/products`
+- Method : GET
+- Endpoint : `/api/v1/landing-page/tobk-go-nasional`
 - Header :
-    - Content-Type: application/json
+    - Accept: application/json
     - Authorization : "Bearer " + Token
-- Body :
-
-```json 
-{
-    "id" : "string, unique",
-    "name" : "string",
-    "price" : "long",
-    "komar" : "number"
-}
-```
-
 Response :
 
 ```json 
 {
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "price" : "long",
-         "komar" : "string",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
+    "data": [
+        {
+            "title": "string, unique",
+            "tanggal_pelaksanaan": "date",
+            "soon_date": "string || date", // cnth: Coming Soon 10 Oktober 2023
+            "soon_time": "string || date", // cnth: Pukul 09.00 - 12.00 WIB
+            "deskripsi": [
+                {
+                    "content": "string" 
+                }
+            ],
+            "path_router": "string",
+        }
+    ],
 
     "meta" : {
         "code" : "number",
@@ -655,6 +652,69 @@ Response :
     }
 }
 ```
+
+
+## Top Guru
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/landing-page/top-guru`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "nama_guru": "string",
+            "mata_pelajaran": "string",
+            "pengalaman": "string || number",
+            "pencapaian": "string",
+            "deskripsi": [
+                { "content": "string" },
+            ],
+        },
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Testimoni Siswa
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/landing-page/testimoni-siswa`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "nama_siswa": "string",
+            "title": "string",
+            "description": "string",
+            "link_video": "string",
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
 
 ## Get Product
 
@@ -726,155 +786,6 @@ Response :
         "message" : "string", 
         "status" : "string",
     }
-}
-```
-
-## Update Product
-
-Request :
-- Method : PUT
-- Endpoint : `/api/v1/products/{id_product}`
-- Header :
-    - Content-Type: application/json
-    - Accept: application/json
-- Body :
-
-```json 
-{
-    "name" : "string",
-    "price" : "long",
-    "komar" : "string"
-}
-```
-
-Response :
-
-```json 
-{
-    "data" : {
-         "id" : "string, unique",
-         "name" : "string",
-         "price" : "long",
-         "komar" : "string",
-         "createdAt" : "date",
-         "updatedAt" : "date"
-    },
-
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
-
-## List Product Pilihan 1
-
-Request :
-- Method : GET
-- Endpoint : `/api/v1/products`
-- Header :
-    - Accept: application/json
-- Query Param :
-    - size : number,
-    - search: string,
-    - page : number
-
-Response :
-
-```json 
-{
-    "data" : [
-        {
-             "id" : "string, unique",
-             "name" : "string",
-             "price" : "long",
-             "komar" : "string",
-             "createdAt" : "date",
-             "updatedAt" : "date"
-        },
-        {
-             "id" : "string, unique",
-             "name" : "string",
-             "price" : "long",
-             "komar" : "string",
-             "createdAt" : "date",
-             "updatedAt" : "date"
-         }
-    ],
-
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
-
-## List Product Pilihan 2
-
-Request :
-- Method : POST
-- Endpoint : `/api/v1/products`
-- Header :
-    - Accept: application/json
-- Body :
-
-```json 
-{
-    "size" : "number",
-    "search" : "string",
-    "page" : "number"
-}
-```
-
-Response :
-
-```json 
-{
-    "data" : [
-        {
-             "id" : "string, unique",
-             "name" : "string",
-             "price" : "long",
-             "quantity" : "integer",
-             "createdAt" : "date",
-             "updatedAt" : "date"
-        },
-        {
-             "id" : "string, unique",
-             "name" : "string",
-             "price" : "long",
-             "quantity" : "integer",
-             "createdAt" : "date",
-             "updatedAt" : "date"
-         }
-    ],
-
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
-
-## Delete Product
-
-Request :
-- Method : DELETE
-- Endpoint : `/api/v1/products/{id_product}`
-- Header :
-    - Accept: application/json
-    - Authorization : "Bearer " + Token
-
-Response :
-
-```json 
-{
-    "code" : "number",
-    "message" : "string",
-    "status" : "string"
 }
 ```
 
@@ -2131,106 +2042,6 @@ Response :
 }
 ```
 
-# LandingPage
-
-
-## TOBK Go Nasional
-
-Request :
-- Method : GET
-- Endpoint : `/api/v1/landing-page/tobk-go-nasional`
-- Header :
-    - Accept: application/json
-    - Authorization : "Bearer " + Token
-Response :
-
-```json 
-{
-    "data": [
-        {
-            "title": "string, unique",
-            "tanggal_pelaksanaan": "date",
-            "soon_date": "string || date", // cnth: Coming Soon 10 Oktober 2023
-            "soon_time": "string || date", // cnth: Pukul 09.00 - 12.00 WIB
-            "deskripsi": [
-                {
-                    "content": "string" 
-                }
-            ],
-            "path_router": "string",
-        }
-    ],
-
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
-
-
-## Top Guru
-
-Request :
-- Method : GET
-- Endpoint : `/api/v1/landing-page/top-guru`
-- Header :
-    - Accept: application/json
-    - Authorization : "Bearer " + Token
-Response :
-
-```json 
-{
-    "data": [
-        {
-            "nama_guru": "string",
-            "mata_pelajaran": "string",
-            "pengalaman": "string || number",
-            "pencapaian": "string",
-            "deskripsi": [
-                { "content": "string" },
-            ],
-        },
-    ],
-
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
-
-## Testimoni Siswa
-
-Request :
-- Method : GET
-- Endpoint : `/api/v1/landing-page/testimoni-siswa`
-- Header :
-    - Accept: application/json
-    - Authorization : "Bearer " + Token
-Response :
-
-```json 
-{
-    "data": [
-        {
-            "nama_siswa": "string",
-            "title": "string",
-            "description": "string",
-            "link_video": "string",
-        }
-    ],
-
-    "meta" : {
-        "code" : "number",
-        "message" : "string", 
-        "status" : "string",
-    }
-}
-```
-
 
 # Simulasi
 
@@ -2282,7 +2093,7 @@ Response :
 {
     "data": [
         {
-            "prioritas": "1",
+            "prioritas": "number",
             "status": "boolean",
             "universitas": "string",
             "id_jurusan": "string, unique",
@@ -2322,7 +2133,7 @@ Response :
 {
     "data": [
         {
-            "prioritas": "1",
+            "prioritas": "number",
             "status": "boolean",
             "universitas": "string",
             "id_jurusan": "string, unique",
@@ -2386,6 +2197,71 @@ Response :
             "id_kelompok_ujian": "string, unique",
             "nama_kelompok_ujian": "string",
             "inisial_kelompok_ujian": "string"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+# Pembayaran
+
+## Get Pembayaran
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/simulasi/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_pembelian": "string, unique",
+            "total_harga": "number",
+            "total_dibayar": "number",
+            "sisa_bayar": "number",
+            "status": "enum",
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+## Get Pembayaran Detail
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/simulasi/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_pembelian": "string, unique",
+            "total_harga": "number",
+            "total_dibayar": "number",
+            "sisa_bayar": "number",
+            "status": "enum",
+            "tanggal_jatuhtempo": "Date"
         }
     ],
 
