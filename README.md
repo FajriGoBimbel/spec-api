@@ -3254,4 +3254,97 @@ Response :
 ```
 
 
+## Master Kota GO
+
+### Kota GO
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/kota/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_kota": "string, unique",
+            "nama_kota": "number",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+### Outlet GO
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/kota/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_outlet": "string, unique",
+            "nama_outlet": "string",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+### Kelas GO
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/kota/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_sekolah_kelas": "string, unique",
+            "nama_kelompok_sekolah": "string",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+
 *[Dokumentasi Endpoint API](https://docs.google.com/spreadsheets/d/1-BoVrjKcfo3SslzNT5Me3HpYR5e_83Fb8Hmfc1VDYE0/edit#gid=0)*.
