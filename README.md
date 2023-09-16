@@ -3260,7 +3260,7 @@ Response :
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/kota/`
+- Endpoint : `/api/v1/kota-go/`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -3290,7 +3290,7 @@ Response :
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/kota/`
+- Endpoint : `/api/v1/outlet/`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -3316,11 +3316,11 @@ Response :
 ```
 
 
-### Kelas GO
+### Kelas Option Product
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/kota/`
+- Endpoint : `/api/v1/kelas-option/`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
