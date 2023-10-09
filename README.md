@@ -154,26 +154,6 @@ Response :
         "email_ortu": "string, unique",
         "nomor_hp": "number, unique",
         "nomor_hp_ortu": "number, unique",
-        "pilihan_ptn": [
-            "pilihan": [
-                {
-                    "pilihan": "number",
-                    "id_jurusan" : "string, unique",
-                },
-                {
-                    "pilihan": "number",
-                    "id_jurusan" : "string, unique",
-                }
-            ],
-            "historyPilihan": [
-                {
-                    "pilihan": "number",
-                    "id_jurusan": "string. unique",
-                    "created_at": "date",
-                }
-            ]
-        ],
-        "job_ortu": "string",
          "daftar_produk": [
             {
                 "id_komponent_produk": "string, unique",
@@ -3346,5 +3326,38 @@ Response :
 ```
 
 
+## Riwayat Pembelian (Pembayaran)
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/riwayat-pembayaran/{no_reg}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id": "string, unique",
+            "nama_Product": "string", //cnth: TWT 12 SMA Silver 4 Pertemuan
+            "sudah_dibayar": "number", //cnth: Rp4.000.000
+            "waktu_bayar": "date",
+            "sisa_bayar": "string", //cnth: Rp 0
+            "cicilan_ke": "string", //cnth: 3
+            "jatuh_tempo": "date",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
 
 *[Dokumentasi Endpoint API](https://docs.google.com/spreadsheets/d/1-BoVrjKcfo3SslzNT5Me3HpYR5e_83Fb8Hmfc1VDYE0/edit#gid=0)*.
