@@ -3360,4 +3360,79 @@ Response :
 }
 ```
 
+## Biodata
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/profile-biodata/{no_reg}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id": "string, unique",
+            "nama_lengkap": "string", //cnth: Syaifal
+            "tingkat_kelas": "number", //cnth: 12 SMA
+            "product_dibeli": "string",
+            "alamat": "string", //cnth: Jl. Purnawarman 36B, Kota Bandung
+            "rank": [
+                {
+                    "ranking_tipe": "string", //cnth: tobk dan buku soal
+                    "rank_nasional": "string",
+                    "rank_kota": "string",
+                    "rank_gedung": "string"
+                }
+            ],
+            "biodata-data-siswa":{
+                "nama_lengkap": "string",
+                "noHp": "number",
+                "alamat_email": "string",
+            },
+            "biodata-alamat-siswa":{
+                "alamat": "string",
+                "block": "string",
+                "id_provinsi": "unique",
+                "id_kab": "unique",
+                "id_kec": "unique",
+                "id_kel": "unique",
+                "kode_pos": "string",
+            },
+            "biodata-data-sekolah-siswa":{
+                "id_kelas": "unique",
+                "id_kurikulum": "unique",
+                "id_kota_asal_sekolah": "unique",
+                "id_sekolah": "string",
+            },
+            "biodata-data-ortu":{
+                "nama_lengkap": "string",
+                "noHp": "number",
+                "alamat_email": "string",
+            },
+            "biodata-alamat-ortu":{
+                "alamat": "string",
+                "block": "string",
+                "id_provinsi": "unique",
+                "id_kab": "unique",
+                "id_kec": "unique",
+                "id_kel": "unique",
+                "kode_pos": "string",
+            },
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
 *[Dokumentasi Endpoint API](https://docs.google.com/spreadsheets/d/1-BoVrjKcfo3SslzNT5Me3HpYR5e_83Fb8Hmfc1VDYE0/edit#gid=0)*.
