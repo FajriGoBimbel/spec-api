@@ -3125,10 +3125,69 @@ Response :
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/simulasi/`
+- Endpoint : `/api/v1/bookmark/`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "icon_mapel": "string",
+            "list_bookmark": [
+                {
+                    "id_soal": "string, unique",
+                    "isPaket": "boolean",
+                    "kode_bab": "string, unique",
+                    "kode_tob": "string, unique",
+                    "nama_bab": "string",
+                    "id_bundel": "string, unique",
+                    "isSimpan": "boolean",
+                    "kode_paket": "string, unique",
+                    "nomor_soal": "number",
+                    "last_update": "date",
+                    "id_jenis_produk": "number",
+                    "nomor_soal_siswa": "number",
+                    "nama_jenis_produk": "string",
+                    "tanggal_kadaluwarsa": "date || null"
+                },
+            ],
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial_kelompok_ujian": "string"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Simpan Bookmark
+
+Request :
+- Method : POST
+- Endpoint : `/api/v1/bookmark/`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+- Body :
+
+```json 
+{
+    "id_soal": "string, unique",
+    "kode_bab": "string, unique",
+    "kode_tob": "string, unique",
+    "kode_paket": "string, unique",
+    "id_bundel": "string, unique",
+    "id_jenis_produk": "number",
+}
+```
 Response :
 
 ```json 
@@ -3710,6 +3769,932 @@ Response :
             "levelTeori": "SMA",
             "kelengkapan": "Lengkap"
         },
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+## Buku Sakti Teaser
+
+### List Buku Sakti - EMWA Teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/emwa/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "isLulus": "boolean",
+            "id_jenis_produk": "string, unique",
+            "IsBlockingTime": "boolean",
+            "id_sekolah_kelas": "41",
+            "tanggal_berlaku": "date",
+            "tanggal_kedaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - EMMA Teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/emma/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "isLulus": "boolean",
+            "id_jenis_produk": "string, unique",
+            "IsBlockingTime": "boolean",
+            "id_sekolah_kelas": "41",
+            "tanggal_berlaku": "date",
+            "tanggal_kedaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Lateks teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/lateks/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Soal Koding teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/soal-koding/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Pendalaman Materi teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/pendalaman-materi/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Soal Referensi teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/soal-referensi/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Kuis teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/kuis/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "kode_tob": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_jenis_produk": "string, unique",
+            "id_sekolah_kelas": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "nomor_urut": "number",
+            "isBlockingTime": "boolean",
+            "tanggal_berlaku": "date",
+            "tanggal_kadaluwarsa": "date",
+            "total_waktu": "time",
+            "total_soal": "number",
+            "jenis": "string",
+            "isSelesai": "boolean",
+            "isPernahMengerjakan": "boolean",
+            "tanggal_mulai": "date",
+            "tanggal_deadline": "date",
+            "tanggal_pengumpulan": "date",
+            "merk": "Unknown",
+            "waktu_habis": "boolean"
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### List Buku Sakti - Paket Intensif teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/list/paket-intensif/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "id_bundel": "string, unique",
+            "kode_tob": "string, unique",
+            "kode_paket": "string, unique",
+            "deskripsi": "string",
+            "id_kelompok_ujian": "string, unique",
+            "nama_kelompok_ujian": "string",
+            "inisial": "string",
+            "waktu_pengerjaan": "time",
+            "total_soal": "number",
+            "opsi_urut": "string",
+            "id_sekolah_kelas": "string, unique",
+            "jenis": "string" //cnth: teaser
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Lateks teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/lateks/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Soal Koding teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/soal-koding/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Pendalaman Materi teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/pendalaman-materi/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Soal Referensi teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/soal-referensi/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Daftar Bab Buku Sakti - Paket Intensif teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/daftar-bab/paket-intensif/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "bab_utama": "string",
+            "info": [
+                {
+                    "nama_bab": "string",
+                    "jumlah_soal": "number",
+                    "kode_bab": "string, unique",
+                    "id_bundel": "string, unique",
+                }
+            ]
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - EMWA teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal-emwa/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": {
+        "waktu": "time",
+        "data_detail": [
+            {
+                "wacana": "",
+                "id_soal": "string, unique",
+                "nomor_soal": "1",
+                "id_wacana": "string, unique",
+                "id_bundel": "string, unique",
+                "id_kelompok_ujian": "string, unique",
+                "nama_kelompok_ujian": "string",
+                "id_video": "string, unique",
+                "soal": "string",
+                "opsi": [
+                    {
+                        "pilihan": "string, unique", // cnth:  A, B, C, D
+                        "text": "string",
+                        "isJawaban": "boolean",
+                    }
+                ],
+                "tipe_soal": "enum || string",
+                "tingkat_kesulitan": "number",
+                "kode_paket": "EMWA-754" //cnth: EMWA-754
+            }
+        ]
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - EMMA teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal-emma/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data": {
+        "waktu": "time",
+        "data_detail": [
+            {
+                "wacana": "",
+                "id_soal": "string, unique",
+                "nomor_soal": "1",
+                "id_wacana": "string, unique",
+                "id_bundel": "string, unique",
+                "id_kelompok_ujian": "string, unique",
+                "nama_kelompok_ujian": "string",
+                "id_video": "string, unique",
+                "soal": "string",
+                "opsi": [
+                    {
+                        "pilihan": "string, unique", // cnth:  A, B, C, D
+                        "text": "string",
+                        "isJawaban": "boolean",
+                    }
+                ],
+                "tipe_soal": "enum || string",
+                "tingkat_kesulitan": "number",
+                "kode_paket": "EMWA-754" //cnth: EMWA-754
+            }
+        ]
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Lateks teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal-lateks/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+
+
+
+```json 
+{
+    "data": [
+        {
+            "waktu": "time",
+            "data_detail": [
+                {
+                    "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
+                }
+            ],
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Soal Koding teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal/soal-koding/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+
+
+
+```json 
+{
+    "data": [
+        {
+            "waktu": "time",
+            "data_detail": [
+                {
+                    "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
+                }
+            ],
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Pendalaman Materi teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal/pendalaman-materi/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+
+
+
+```json 
+{
+    "data": [
+        {
+            "waktu": "time",
+            "data_detail": [
+                {
+                    "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
+                }
+            ],
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Soal Referensi teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal/soal-referensi/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+
+
+
+```json 
+{
+    "data": [
+        {
+            "waktu": "time",
+            "data_detail": [
+                {
+                    "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
+                }
+            ],
+        }
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Kuis teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal-kuis/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : {
+        {
+            "id_soal": "string, unique",
+            "soal": "string",
+            "opsi": [
+                {
+                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                    "text": "string",
+                    "isJawaban": "boolean",
+                }
+            ],
+            "id_wacana": "string, unique",
+            "id_tipe_soal": "string, unique",
+            "tipe_soal": "string",
+            "tingkat_kesulitan": "number",
+            "wacana": "string",
+            "nama_kelompok_ujian": "string",
+            "kode_paket": "string, unique",
+            "id_bundel": "string, unique",
+            "id_kelompok_ujian": "string, unique",
+            "id_video": "string, unique",
+            "nomor_soal": "number"
+        },
+        "waktu": "time",
+    },
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Soal Buku Sakti - Paket Intensif teaser
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal/paket-intensif/teaser`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+
+
+
+```json 
+{
+    "data": [
+        {
+            "waktu": "time",
+            "data_detail": [
+                {
+                    "id_bundel": "string, unique",
+                    "kode_bab": "string, unique",
+                    "id_soal": "string, unique",
+                    "id_kelompok_ujian": "string, unique",
+                    "nama_kelompok_ujian": "string",
+                    "soal": "string",
+                    "opsi": [
+                        {
+                            "opsi_detail": [
+                                {
+                                    "pilihan": "string, unique", // cnth:  A, B, C, D
+                                    "text": "string",
+                                    "isJawaban": "boolean",
+                                }
+                            ],
+                            "nilai": {
+                                "fullcredit": "number",
+                                "halfcredit": "number",
+                                "zerocredit": "number",
+                            }
+                        }
+                    ],
+                    "id_wacana": "string, unique",
+                    "tipe_soal": "string || enum",
+                    "tingkat_kesulitan": "number",
+                    "nomor_soal": "number",
+                    "id_video": null,
+                    "wacana": "string",
+                    "inisial_mapel": "string"
+                }
+            ],
+        }
     ],
 
     "meta" : {
