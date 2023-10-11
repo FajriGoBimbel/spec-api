@@ -3594,4 +3594,131 @@ Response :
 ```
 
 
+## E-Video Materi
+
+### Get Daftar Mata pelajaran
+
+Request :
+- Method : POST
+- Endpoint : `/api/v1/video-mapel`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+- Body :
+
+```json 
+{
+    "id_product" : [1,2,3],
+}
+```
+
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "iconMapel":"icon punya web bukan mobile",
+            "IdKelompokUjian": 40,
+            "NamaKelompokUjian": "BAHASA INDONESIA",
+            "Singkatan": "IND",
+            "KodeBuku": 2814,
+            "NamaBuku": "Ebook Teori B.Indonesia 12 IPA TA.23/24 (Teaser)",
+            "Semester": 2,
+            "kelengkapan": "Lengkap",
+            "idSekolahKelas": 14,
+            "levelTeori": "SMA",
+            "jenis": "reguler"
+        },
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+### Get Video
+
+Request :
+- Method : POST
+- Endpoint : `/api/v1/video-materi`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+- Body :
+
+```json 
+{
+    "samakan dengan app"
+}
+```
+
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "NamaMataPelajaran": "BIOLOGI",
+            "IdVideo": "577",
+            "Deskripsi": "Kedudukan biologi dengan ilmu lain",
+            "JudulVideo": "BIO_01.02_SMA_Lengkap",
+            "LinkVideo": "http://streaming.ganeshaoperation.com/index.pv=Wkcxc2ExcFhPVEJhVnpsNVlWTTViVTFVUlRWYWFrNXBUVEpPYlUxdFZtaFBWMVpwV21wWk5FNTZXbWhPUkdocVRsZGFhVTlIUlhsYWFUVjBZMFJSUFE9PQ==",
+            "Keyword":"teori, pembelajaran, edukasi"
+        },
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Get Solusi
+
+Request :
+- Method : POST
+- Endpoint : `/api/v1/solusi`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+- Body :
+
+```json 
+{
+    "samakan dengan app"
+}
+```
+
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "c_NamaMataPelajaran": "MATEMATIKA",
+            "c_IdMataPelajaran": "1",
+            "c_KodeBab": "01.27.06",
+            "c_NamaBab": "Penarikan kesimpulan",
+            "c_IdTeoriBab": "1254",
+            "levelTeori": "SMA",
+            "kelengkapan": "Lengkap"
+        },
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
 *[Dokumentasi Endpoint API](https://docs.google.com/spreadsheets/d/1-BoVrjKcfo3SslzNT5Me3HpYR5e_83Fb8Hmfc1VDYE0/edit#gid=0)*.
