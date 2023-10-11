@@ -3434,5 +3434,164 @@ Response :
 }
 ```
 
+## E-BOOK Teori
+
+### Get Daftar Buku
+
+Request :
+- Method : POST
+- Endpoint : `/api/v1/daftar-buku`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+- Body :
+
+```json 
+{
+    "id_product" : [1,2,3],
+}
+```
+
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "mapel_utbk": [
+                {
+                    "iconMapel":"icon punya web bukan mobile",
+                    "IdKelompokUjian": 40,
+                    "NamaKelompokUjian": "BAHASA INDONESIA",
+                    "Singkatan": "IND",
+                    "KodeBuku": 2814,
+                    "NamaBuku": "Ebook Teori B.Indonesia 12 IPA TA.23/24 (Teaser)",
+                    "Semester": 2,
+                    "kelengkapan": "Lengkap",
+                    "idSekolahKelas": 14,
+                    "levelTeori": "SMA",
+                    "jenis": "reguler"
+                }
+            ],
+            "mapel_ujiansekolah": [
+                {
+                    "iconMapel":"icon punya web bukan mobile",
+                    "IdKelompokUjian": 40,
+                    "NamaKelompokUjian": "BAHASA INDONESIA",
+                    "Singkatan": "IND",
+                    "KodeBuku": 2814,
+                    "NamaBuku": "Ebook Teori B.Indonesia 12 IPA TA.23/24 (Teaser)",
+                    "Semester": 2,
+                    "kelengkapan": "Lengkap",
+                    "idSekolahKelas": 14,
+                    "levelTeori": "SMA",
+                    "jenis": "reguler"
+                }
+            ]
+        },
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+### Get Daftar Bab
+
+Request :
+- Method : POST
+- Endpoint : `/api/v1/daftar-bab`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+- Body :
+
+```json 
+{
+    "samakan dengan app"
+}
+```
+
+Response :
+
+```json 
+{
+    "data": [
+        {
+            "NamaKelompokUjian": "BAHASA INDONESIA",
+            "NamaBuku": "Ebook Teori B.Indonesia 12 IPA TA.23/24 (Teaser)",
+            "semester1": [
+                {
+                    "babUtama": "EJAAN",
+                    "info": [
+                        {
+                            "c_NamaBab": "Penulisan Huruf",
+                            "c_KodeBab": "06.02.01",
+                            "c_IdTeoriBab": "2324"
+                        },
+                    ]
+                }
+            ],
+            "semester2": [
+                {
+                    "babUtama": "EJAAN",
+                    "info": [
+                        {
+                            "c_NamaBab": "Penulisan Huruf",
+                            "c_KodeBab": "06.02.01",
+                            "c_IdTeoriBab": "2324"
+                        },
+                    ]
+                }
+            ]
+        },
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+
+### Get Content
+
+Request :
+- Method : POST
+- Endpoint : `/api/v1/daftar-bab`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+- Body :
+
+```json 
+{
+    "samakan dengan app mobile"
+}
+```
+
+Response :
+
+```json 
+{
+    "data": {
+            "idteoribab": 552,
+            "Uraian": "html content"
+    }
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
 
 *[Dokumentasi Endpoint API](https://docs.google.com/spreadsheets/d/1-BoVrjKcfo3SslzNT5Me3HpYR5e_83Fb8Hmfc1VDYE0/edit#gid=0)*.
