@@ -1037,9 +1037,11 @@ Response :
 {
     "data" : {
          "no_registrasi" : "string, unique",
-         "visual" : "number",
-         "auditory" : "number",
-         "kinestetik" : "number",
+         "detail_point": [
+                { "icon": "url", "name": "Visual", "poin": 5 },
+                { "icon": "url", "name": "Auditori", "poin": 3 },
+                { "icon": "url", "name": "Kinestetik", "poin": 2 },
+            ],
          "dominan": [
             {
                 "type": "string", // cnth: Visual, Auditory, Kinestetik
