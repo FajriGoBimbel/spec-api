@@ -1098,11 +1098,11 @@ Response :
 }
 ```
 
-### Laporan Tes Kuis
+### Laporan List Kuis
 
 Request :
 - Method : GET
-- Endpoint : `/api/v1/laporan/kuis/{id_user}`
+- Endpoint : `/api/v1/laporan/kuis-list/{id_user}`
 - Header :
     - Accept: application/json
     - Authorization : "Bearer " + Token
@@ -1113,7 +1113,39 @@ Response :
     "data" : [
         {
             "id" : "string, unique",
-            "kode_kuis" : "string, unique",
+            "kode_paket" : "string, unique",
+            "nama_kuis" : "string",
+            "id_kelompok_ujian" : "string, unique",
+            "nama_kelompok_ujian" : "string",
+            "createdAt" : "date",
+            "updatedAt" : "date"
+        },   
+    ],
+
+    "meta" : {
+        "code" : "number",
+        "message" : "string", 
+        "status" : "string",
+    }
+}
+```
+
+### Laporan Hasil Kuis
+
+Request :
+- Method : GET
+- Endpoint : `/api/v1/laporan/kuis-hasil/{kode_paket}`
+- Header :
+    - Accept: application/json
+    - Authorization : "Bearer " + Token
+Response :
+
+```json 
+{
+    "data" : [
+        {
+            "id" : "string, unique",
+            "kode_paket" : "string, unique",
             "nama_kuis" : "string",
             "kuis_detail" : [
                 {
