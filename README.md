@@ -4670,4 +4670,45 @@ Request :
 }
 ```
 
+### JADWAL KBM DAN TST
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/buku-sakti/soal/paket-intensif/teaser`
+- Header : - Accept: application/json - Authorization : "Bearer " + Token
+  Response :
+
+```json
+{
+  "data": {
+    "jadwal": [
+      {
+        "hari_dan_tanggal": "string",
+        "jadwal": [
+          {
+            "mata_pelajaran": "string",
+            "jam_mulai": "string",
+            "jam_berakhir": "string",
+            "nama_guru": "string"
+          },
+          {
+            "mata_pelajaran": "string",
+            "jam_mulai": "string",
+            "jam_berakhir": "string",
+            "nama_guru": "string"
+          }
+        ]
+      }
+    ]
+  }
+
+   "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
 _[Dokumentasi Endpoint API](https://docs.google.com/spreadsheets/d/1-BoVrjKcfo3SslzNT5Me3HpYR5e_83Fb8Hmfc1VDYE0/edit#gid=0)_.
