@@ -4675,7 +4675,7 @@ Request :
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/buku-sakti/soal/paket-intensif/teaser`
+- Endpoint : `/api/v1/jadwal/`
 - Header : - Accept: application/json - Authorization : "Bearer " + Token
   Response :
 
