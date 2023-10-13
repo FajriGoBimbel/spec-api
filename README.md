@@ -817,6 +817,16 @@ Request :
           "nilai_score": "number"
         }
       ],
+      "skor_tobk": [
+        {
+          "nama_tobk": "string", // cth TOBK SUPER INTENSIF KE-1
+          "nilai_score": "number"
+        }
+        {
+          "nama_tobk": "string", // cth TOBK SUPER INTENSIF KE-2
+          "nilai_score": "number"
+        }
+      ]
       "isEPB": "boolean",
       "link_download_epb": "string",
       "createdAt": "date",
@@ -843,15 +853,26 @@ Request :
 
 ```json
 {
-  "data": [
-    {
-      "kode_soal": "string",
-      "nama_kelompok_ujian": "string", // cth : TOBK SUPER INTENSIF KE-1
-      "tanggal_mengerjakan": "string",
-      "dijawab": "number",
-      "kosong": "number"
-    }
-  ],
+  "data": {
+    "nama_kelompok_tobk": "string", // cth : TOBK SUPER INTENSIF KE-1
+    "tanggal_mengerjakan": "string",
+    "hasil": [
+      {
+        "bagian": "number",
+        "judul": "string", // cth Tes Potensi Skolastik
+        "kode_soal_tob": "string", // TO - 00265
+        "dijawab": "number",
+        "kosong": "number"
+      },
+      {
+        "bagian": "number",
+        "judul": "string", // cth Tes Potensi Skolastik
+        "kode_soal_tob": "string", // TO - 00265
+        "dijawab": "number",
+        "kosong": "number"
+      }
+    ]
+  },
   "meta": {
     "code": "number",
     "message": "string",
