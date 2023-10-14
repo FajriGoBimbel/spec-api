@@ -4711,4 +4711,115 @@ Request :
 }
 ```
 
+### DASHBOARD CAPAIAN SKOR
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/namaService/capaian`
+- Header : - Accept: application/json - Authorization : "Bearer " + Token
+  Body :
+
+  Response :
+
+```json
+{
+  "data": {
+    "jumlah_skor": "number",
+    "total_pengerjaan_soal": "number",
+    "target_soal": "number",
+    "hasil": {
+      "benar": "number",
+      "salah": "number"
+    },
+    "ranking": {
+      "nasional": "number",
+      "kota": "number",
+      "cabang": "number",
+      "gedung": "number",
+      "sekolah": "number"
+    },
+    "detail": {
+      "level_1": {
+        "skor": "number",
+        "tingkat_kesulitan": "number",
+        "benar": "number",
+        "salah": "number"
+      },
+      "level_2": {
+        "skor": "number",
+        "tingkat_kesulitan": "number",
+        "benar": "number",
+        "salah": "number"
+      },
+      "level_3": {
+        "skor": "number",
+        "tingkat_kesulitan": "number",
+        "benar": "number",
+        "salah": "number"
+      },
+      "level_4": {
+        "skor": "number",
+        "tingkat_kesulitan": "number",
+        "benar": "number",
+        "salah": "number"
+      },
+      "level_5": {
+        "skor": "number",
+        "tingkat_kesulitan": "number",
+        "benar": "number",
+        "salah": "number"
+      }
+    }
+  },
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### DASHBOARD CAPAIAN BAR
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/namaService/capaian`
+- Header : - Accept: application/json - Authorization : "Bearer " + Token
+  Body :
+
+  ```json
+  {
+    "hari": "number", // DAY NUMBER
+    "minggu": "number", // WEEK NUMBER
+    "bulan": "number" // MONTH NUMBER
+  }
+  ```
+
+  Response :
+
+```json
+{
+  // JIKA DATA REQUEST BODY YANG DI KIRIM ADALAH HARIAN, DATA YANG TAMPIL BERDASARKAN HASIL HARIAN SISWA dst
+  "data": [
+    {
+      "kategori": "string", // cth Tes Potensi Skolastik (TPS) || Mata Pelajaran Sekolah
+      "cidmapel": "string",
+      "target": "number",
+      "pengerjaan": "number",
+      "total_benar": "number",
+      "total_salah": "number",
+      "nama": "string", // MATEMATIKA
+      "initial": "string" //MAT
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
 _[Dokumentasi Endpoint API](https://docs.google.com/spreadsheets/d/1-BoVrjKcfo3SslzNT5Me3HpYR5e_83Fb8Hmfc1VDYE0/edit#gid=0)_.
