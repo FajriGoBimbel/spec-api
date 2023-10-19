@@ -4670,7 +4670,7 @@ Request :
 }
 ```
 
-### JADWAL KBM DAN TST
+### JADWAL KBM
 
 Request :
 
@@ -4704,6 +4704,38 @@ Request :
   }
 
    "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### JADWAL TST
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/jadwal/`
+- Header : - Accept: application/json - Authorization : "Bearer " + Token
+  Response :
+
+```json
+{
+  "data": [
+    {
+      "tanggal_dan_waktu": "string",
+      "lokasi": "string",
+      "mata-pelajaran": "string",
+      "nama_guru": "string",
+      "peserta": [
+        {
+          "nama_peserta": "string"
+        }
+      ]
+    }
+  ],
+  "meta": {
     "code": "number",
     "message": "string",
     "status": "string"
